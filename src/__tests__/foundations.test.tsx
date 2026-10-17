@@ -63,8 +63,8 @@ describe("the API's answers in words", () => {
   });
   it("has a message for every code it can show, in both languages", () => {
     for (const code of ["INVALID_CREDENTIALS", "network", "UNAVAILABLE", "generic", "NO_FIT_YET", "ALREADY_DECIDED"]) {
-      expect(i18n.translator("en")(`errors.${code}` as never)).not.toBe(`errors.${code}`);
-      expect(i18n.translator("fr")(`errors.${code}` as never)).not.toBe(`errors.${code}`);
+      expect(i18n.translator("en")(`errors.${code}` as never, {} as never)).not.toBe(`errors.${code}`);
+      expect(i18n.translator("fr")(`errors.${code}` as never, {} as never)).not.toBe(`errors.${code}`);
     }
   });
 });
