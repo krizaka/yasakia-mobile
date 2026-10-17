@@ -1,0 +1,79 @@
+{
+  "common": {
+    "retry": "Réessayer",
+    "close": "Fermer",
+    "someone": "Quelqu’un",
+    "loading": "Chargement"
+  },
+  "signIn": {
+    "title": "Connexion",
+    "lead": "Yasakia est en développement : la connexion se fait sur invitation.",
+    "email": "Courriel",
+    "password": "Mot de passe",
+    "submit": "Se connecter",
+    "working": "Connexion…"
+  },
+  "tabs": {
+    "label": "Yasakia",
+    "talk": "Parler",
+    "batch": "Lot"
+  },
+  "talk": {
+    "title": "Parle à ton agent",
+    "lead": "On parle d’abord : l’agent apprend à te connaître, puis cherche des personnes qui correspondent dans les deux sens.",
+    "placeholder": "Écris à ton agent",
+    "send": "Envoyer",
+    "closed": "Ton portrait est écrit. La conversation reprend après ton premier lot.",
+    "thinking": "L’agent répond…",
+    "portraitTitle": "Ton portrait",
+    "portraitSelf": "Qui tu es",
+    "portraitSeeking": "Qui tu espères rencontrer",
+    "toBatch": "Voir ton lot"
+  },
+  "batch": {
+    "title": "Ton lot",
+    "lead": "Un petit lot, jamais un catalogue : des personnes qui te correspondent, et pour qui tu corresponds aussi.",
+    "noScore": "Pas de note, pas de swipe : l’agent dit pourquoi vous deux, avec des mots, dans les deux sens.",
+    "readyTitle": "Ton portrait est écrit",
+    "readyDescription": "L’agent peut chercher des personnes qui te correspondent dans les deux sens.",
+    "look": "Chercher mon lot",
+    "looking": "L’agent cherche…",
+    "talkFirstTitle": "On parle d’abord",
+    "talkFirstDescription": "L’agent doit te connaître avant d’ouvrir un lot.",
+    "emptyTitle": "Rien à répondre",
+    "emptyDescription": "L’agent te dira quand le prochain lot est prêt.",
+    "debriefDue": "Tout le monde a sa réponse. Le débrief vient ensuite — sur le web pour l’instant.",
+    "fictional": "Personnage fictif — développement seulement",
+    "whyYou": "Pourquoi cette personne pourrait te plaire",
+    "whyThem": "Pourquoi tu pourrais lui plaire",
+    "lookingFor": "Qui cette personne espère rencontrer",
+    "interested": "Intéressé·e",
+    "tellMeMore": "Dis-m’en plus",
+    "pass": "Je passe",
+    "saidYes": "Tu as dit oui",
+    "passed": "Tu es passé·e",
+    "introOpened": "Vous vous êtes dit oui : votre présentation est ouverte."
+  },
+  "update": {
+    "softTitle": "Une mise à jour est disponible",
+    "forceTitle": "Mets Yasakia à jour pour continuer",
+    "maintenanceTitle": "Yasakia est en maintenance",
+    "update": "Mettre à jour",
+    "later": "Plus tard",
+    "version": "Version {version}"
+  },
+  "errors": {
+    "generic": "Quelque chose n’a pas marché. Réessaie.",
+    "network": "Pas de connexion. Vérifie ton réseau et réessaie.",
+    "INVALID_CREDENTIALS": "Courriel ou mot de passe incorrect.",
+    "RATE_LIMITED": "Trop d’essais. Attends quelques minutes.",
+    "UNAUTHENTICATED": "Ta session est terminée. Reconnecte-toi.",
+    "SUSPENDED": "Ce compte est suspendu.",
+    "NO_FIT_YET": "Personne ne te correspond dans les deux sens pour l’instant. L’agent continue de chercher — personne n’est inventé.",
+    "AI_UNAVAILABLE": "L’agent est hors d’atteinte un instant. Réessaie.",
+    "CONVERSATION_CLOSED": "Ton portrait est déjà écrit.",
+    "ALREADY_DECIDED": "Tu as déjà répondu pour cette personne.",
+    "BATCH_EXPIRED": "Le temps de ce lot est écoulé.",
+    "UNAVAILABLE": "Yasakia n’est pas disponible pour l’instant."
+  }
+}

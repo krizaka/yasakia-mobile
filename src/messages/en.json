@@ -1,0 +1,79 @@
+{
+  "common": {
+    "retry": "Try again",
+    "close": "Close",
+    "someone": "Someone",
+    "loading": "Loading"
+  },
+  "signIn": {
+    "title": "Sign in",
+    "lead": "Yasakia is in development: sign-in is by invitation.",
+    "email": "E-mail",
+    "password": "Password",
+    "submit": "Sign in",
+    "working": "Signing in…"
+  },
+  "tabs": {
+    "label": "Yasakia",
+    "talk": "Talk",
+    "batch": "Batch"
+  },
+  "talk": {
+    "title": "Talk to your agent",
+    "lead": "Talk first: the agent gets to know you, then looks for people who fit both ways.",
+    "placeholder": "Write to your agent",
+    "send": "Send",
+    "closed": "Your portrait is written. The conversation reopens after your first batch.",
+    "thinking": "The agent is answering…",
+    "portraitTitle": "Your portrait",
+    "portraitSelf": "Who you are",
+    "portraitSeeking": "Who you hope to meet",
+    "toBatch": "See your batch"
+  },
+  "batch": {
+    "title": "Your batch",
+    "lead": "A small batch, never a catalogue: people who fit you, and for whom you fit too.",
+    "noScore": "No score, no swipe: the agent says why you two, in words, both ways.",
+    "readyTitle": "Your portrait is written",
+    "readyDescription": "The agent can look for people who fit you both ways.",
+    "look": "Look for my batch",
+    "looking": "The agent is looking…",
+    "talkFirstTitle": "Talk first",
+    "talkFirstDescription": "The agent needs to know you before it opens a batch.",
+    "emptyTitle": "Nothing to answer",
+    "emptyDescription": "The agent will tell you when the next batch is ready.",
+    "debriefDue": "Everyone is answered. The debrief is next — on the web for now.",
+    "fictional": "Fictional persona — dev only",
+    "whyYou": "Why you might like them",
+    "whyThem": "Why they might like you",
+    "lookingFor": "Who they hope to meet",
+    "interested": "Interested",
+    "tellMeMore": "Tell me more",
+    "pass": "Pass",
+    "saidYes": "You said yes",
+    "passed": "You passed",
+    "introOpened": "You both said yes: your introduction is open."
+  },
+  "update": {
+    "softTitle": "An update is available",
+    "forceTitle": "Update Yasakia to continue",
+    "maintenanceTitle": "Yasakia is under maintenance",
+    "update": "Update",
+    "later": "Later",
+    "version": "Version {version}"
+  },
+  "errors": {
+    "generic": "Something went wrong. Try again.",
+    "network": "No connection. Check your network and try again.",
+    "INVALID_CREDENTIALS": "Wrong e-mail or password.",
+    "RATE_LIMITED": "Too many tries. Wait a few minutes.",
+    "UNAUTHENTICATED": "Your session has ended. Sign in again.",
+    "SUSPENDED": "This account is suspended.",
+    "NO_FIT_YET": "Nobody fits you both ways yet. The agent keeps looking — nobody is made up.",
+    "AI_UNAVAILABLE": "The agent is out of reach for a moment. Try again.",
+    "CONVERSATION_CLOSED": "Your portrait is already written.",
+    "ALREADY_DECIDED": "You have already answered for this person.",
+    "BATCH_EXPIRED": "This batch has run out of time.",
+    "UNAVAILABLE": "Yasakia is not available right now."
+  }
+}

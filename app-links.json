@@ -1,0 +1,11 @@
+{
+  "host": "dev.yasakia.com",
+  "iosBundleId": "com.krizaka.yasakia",
+  "androidPackage": "com.krizaka.yasakia",
+  "paths": ["/app/*"],
+  "native": {
+    "appJson": "app.json",
+    "appDir": "src/app",
+    "routes": "https://raw.githubusercontent.com/krizaka/yasakia/main/routes.json"
+  }
+}
