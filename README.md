@@ -1,5 +1,7 @@
 # Yasakia for iOS and Android
 
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/krizaka/yasakia-mobile/badge)](https://scorecard.dev/viewer/?uri=github.com/krizaka/yasakia-mobile)
+
 Talk first, then a small batch of people who fit **both ways**, with no swipe and no score. This is the Expo app of
 [Yasakia](https://dev.yasakia.com) over the same API as the web ([krizaka/yasakia](https://github.com/krizaka/yasakia)).
 In development: sign-in is by invitation.
