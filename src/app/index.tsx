@@ -8,5 +8,5 @@ import { deviceLocale, i18n } from "@/lib/i18n";
 export default function Index() {
   const { state } = useAuth();
   if (state.status === "loading") return <Loader label={i18n.translator(deviceLocale())("common.loading")} />;
-  return <Redirect href={state.status === "signedIn" ? `/app/${deviceLocale()}/talk` : "/sign-in"} />;
+  return <Redirect href={state.status === "signedIn" ? `/app/${deviceLocale()}` : "/sign-in"} />;
 }

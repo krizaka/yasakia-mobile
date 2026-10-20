@@ -1,27 +1,31 @@
-import { BatchIcon, ChatIcon } from "@krizaka/icons/native";
+import { BatchIcon, ChatIcon, HomeIcon, ImageIcon, IntroIcon } from "@krizaka/icons/native";
 import { TabBar } from "@krizaka/ui/native";
 import { Redirect, Slot, useLocalSearchParams, usePathname, useRouter } from "expo-router";
 import { View } from "react-native";
 
 import { useAuth } from "@/lib/auth";
-import { i18n, LocaleProvider, useSay } from "@/lib/i18n";
+import { i18n, LocaleProvider, type Key, useSay } from "@/lib/i18n";
+import { currentEntry, hrefOf, type NavId, USER_NAV } from "@/lib/nav";
 
-type Tab = "talk" | "batch";
+const ICONS: Record<NavId, (color: string) => React.ReactNode> = {
+  dashboard: (color) => <HomeIcon color={color} />,
+  talk: (color) => <ChatIcon color={color} />,
+  photos: (color) => <ImageIcon color={color} />,
+  batch: (color) => <BatchIcon color={color} />,
+  myIntros: (color) => <IntroIcon color={color} />,
+};
 
+/** The five destinations of the web console, from `lib/nav.ts` (the data), in the order of the journey. */
 function Tabs({ locale }: { locale: string }) {
   const { say } = useSay();
   const router = useRouter();
-  const path = usePathname();
-  const value: Tab = path.endsWith("/batch") ? "batch" : "talk";
+  const current = currentEntry(usePathname());
   return (
-    <TabBar<Tab>
+    <TabBar<NavId>
       aria-label={say("tabs.label")}
-      items={[
-        { value: "talk", label: say("tabs.talk"), icon: (_on, color) => <ChatIcon color={color} /> },
-        { value: "batch", label: say("tabs.batch"), icon: (_on, color) => <BatchIcon color={color} /> },
-      ]}
-      value={value}
-      onValueChange={(next) => router.replace(`/app/${locale}/${next}`)}
+      items={USER_NAV.map((entry) => ({ value: entry.id, label: say(`tabs.${entry.id}` as Key), icon: (_on: boolean, color: string) => ICONS[entry.id](color) }))}
+      value={current.id}
+      onValueChange={(next) => router.replace(hrefOf(locale, USER_NAV.find((e) => e.id === next) ?? USER_NAV[0]))}
     />
   );
 }
