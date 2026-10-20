@@ -1,0 +1,47 @@
+# Walks every signed-in screen on the iOS simulator, reusing the session of signin.yaml (the QA sign-in is limited to 10 per hour).
+# Run: maestro test -e LOCALE=en -e T=light -e L_HOME=Home -e L_TALK=Talk -e L_PHOTOS=Photos -e L_BATCH=Batch -e L_INTROS=Intros -e L_PHOTO1='Photo 1' -e L_READY='Checked and ready' -e L_THEM=".*Hugo.*" .maestro/walk.yaml     (screenshots land in the current directory as <T>-<LOCALE>-<screen>.png)
+# The persona on screen is Camille; no account name or e-mail is ever typed or shown after the sign-in.
+appId: com.krizaka.yasakia
+---
+- launchApp
+- openLink: yasakia://app/${LOCALE}
+# iOS asks « Open in Yasakia? » for a custom scheme: the dialog belongs to the system, so it is answered by position.
+- tapOn:
+    point: 68%,54%
+    optional: true
+- extendedWaitUntil:
+    visible:
+      text: ${L_HOME}
+    timeout: 20000
+- extendedWaitUntil:
+    visible: ${L_READY}
+    timeout: 20000
+- takeScreenshot: ${T}-${LOCALE}-1-home
+- tapOn:
+    text: ${L_TALK}
+- waitForAnimationToEnd
+- takeScreenshot: ${T}-${LOCALE}-2-talk
+- tapOn:
+    text: ${L_PHOTOS}
+- extendedWaitUntil:
+    visible: ${L_PHOTO1}
+    timeout: 20000
+- waitForAnimationToEnd:
+    timeout: 4000
+- takeScreenshot: ${T}-${LOCALE}-3-photos
+- scroll
+- takeScreenshot: ${T}-${LOCALE}-3b-photos-check
+- tapOn:
+    text: ${L_BATCH}
+- waitForAnimationToEnd
+- takeScreenshot: ${T}-${LOCALE}-4-batch
+- tapOn:
+    text: ${L_INTROS}
+- waitForAnimationToEnd
+- takeScreenshot: ${T}-${LOCALE}-5-intros
+- tapOn:
+    text: ${L_THEM}
+- waitForAnimationToEnd
+- takeScreenshot: ${T}-${LOCALE}-6-thread
+- scroll
+- takeScreenshot: ${T}-${LOCALE}-6b-thread-end

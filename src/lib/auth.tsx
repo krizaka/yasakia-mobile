@@ -23,7 +23,10 @@ const AuthContext = createContext<Auth | null>(null);
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [state, setState] = useState<AuthState>({ status: "loading" });
   useEffect(() => {
-    void readToken().then((token) => setState(token ? { status: "signedIn" } : { status: "signedOut" }));
+    // A store that cannot be read (no keychain access) is a signed-out person, never an endless loader.
+    void readToken()
+      .then((token) => setState(token ? { status: "signedIn" } : { status: "signedOut" }))
+      .catch(() => setState({ status: "signedOut" }));
   }, []);
   const signIn = useCallback(async (email: string, password: string) => {
     const answer = await krizakaFetch("/api/auth/password", { method: "POST", json: { email, password, client: "native" }, schema: SignedIn });

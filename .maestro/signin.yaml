@@ -1,0 +1,21 @@
+# Signs the QA person in ONCE; the session lives in the secure store, so the walk-through reuses it (the sign-in is limited to 10 per hour per address).
+# Credentials come from the environment (MAESTRO_QA_EMAIL, MAESTRO_QA_PASSWORD), never from the command line or the repository.
+appId: com.krizaka.yasakia
+---
+- launchApp:
+    clearState: true
+- assertVisible:
+    id: signin-email
+- tapOn:
+    id: signin-email
+- inputText: ${MAESTRO_QA_EMAIL}
+- tapOn:
+    id: signin-password
+- inputText: ${MAESTRO_QA_PASSWORD}
+- hideKeyboard
+- tapOn:
+    id: signin-submit
+- extendedWaitUntil:
+    notVisible:
+      id: signin-submit
+    timeout: 20000

@@ -1,5 +1,5 @@
 import { krizakaFetch, useQuery } from "@krizaka/query";
-import { Badge, Button, Card, CardBody, CardTitle, Header, Screen, Txt } from "@krizaka/ui/native";
+import { Badge, Card, CardBody, CardTitle, Header, Screen, Txt } from "@krizaka/ui/native";
 import { useRouter } from "expo-router";
 import { View } from "react-native";
 
@@ -58,7 +58,6 @@ export default function Home() {
             {live.length ? <Txt tone="secondary">{say("home.introsHint", { continued })}</Txt> : null}
           </CardBody>
         </Card.Root>
-        <Button variant="ghost" label={say("tabs.talk")} onPress={() => go("/talk")} />
       </View>
     </Screen>
   );

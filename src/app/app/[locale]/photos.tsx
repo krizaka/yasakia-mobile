@@ -144,7 +144,7 @@ export default function PhotosScreen() {
 
         <Card.Root>
           <CardBody style={{ gap: 8 }}>
-            <CardTitle>{say(`photos.state.${state}`)}</CardTitle>
+            <CardTitle numberOfLines={4}>{say(`photos.state.${state}`)}</CardTitle>
             <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 8 }} accessibilityLiveRegion="polite">
               <Badge tone={counts.photos >= rules.minPhotos ? "success" : "neutral"} dot>
                 {say("photos.counts", { count: counts.photos, min: rules.minPhotos, max: rules.maxPhotos })}
@@ -157,7 +157,7 @@ export default function PhotosScreen() {
             <Blockers view={view} placeholders={placeholders} />
             <PerPhoto view={view} />
             {state === "UNAVAILABLE" || state === "FAILED" ? <Button size="sm" variant="secondary" label={say("photos.retry")} loading={recheck.isPending} onPress={() => recheck.mutate()} /> : null}
-            <Button label={say("photos.continue")} disabled={!canContinue(view)} onPress={() => router.replace(`/app/${locale}/batch`)} />
+            <Button variant="primary" label={say("photos.continue")} disabled={!canContinue(view)} onPress={() => router.replace(`/app/${locale}/batch`)} />
             {canContinue(view) ? null : <Txt tone="secondary" variant="caption">{say("photos.continueHint")}</Txt>}
           </CardBody>
         </Card.Root>

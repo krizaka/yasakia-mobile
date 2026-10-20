@@ -71,11 +71,8 @@ export default function IntroThread() {
       keyboard
       header={
         <Header
-          size="inline"
           title={intro ? say("intros.with", { name }) : say("common.loading")}
           subtitle={intro ? (isOpen(intro, now) ? say("intros.openUntil", { date: time.format(new Date(intro.expiresAt)) }) : say(`intros.states.${intro.state}`)) : undefined}
-          backLabel={say("intros.back")}
-          onBack={() => router.replace(`/app/${locale}/intros`)}
         />
       }
       footer={intro ? <MessageComposer value={draft} onValueChange={onDraft} onSend={submit} placeholder={say("intros.placeholder")} sendLabel={say("intros.send")} disabledReason={canWrite ? undefined : say(`intros.${closedKey(intro)}`)} maxLength={2000} /> : undefined}
@@ -83,6 +80,7 @@ export default function IntroThread() {
       {query.isError ? <Txt tone="danger">{say(`errors.${errorKey(query.error)}` as Key)}</Txt> : null}
       {intro ? (
         <View style={{ gap: 12 }}>
+          <Button variant="ghost" size="sm" label={`‹ ${say("intros.back")}`} onPress={() => router.replace(`/app/${locale}/intros`)} />
           <Txt tone="secondary" variant="caption">
             {say("intros.typedByYou")}
           </Txt>
@@ -117,7 +115,7 @@ export default function IntroThread() {
               ) : isOpen(intro, now) ? (
                 <>
                   <Txt tone="secondary">{intro.continuedByMe ? say("intros.waitingForThem", { name }) : say("intros.continueLead")}</Txt>
-                  {intro.continuedByMe ? null : <Button size="sm" label={say("intros.continue")} loading={cont.isPending} onPress={() => cont.mutate()} />}
+                  {intro.continuedByMe ? null : <Button size="sm" variant="primary" label={say("intros.continue")} loading={cont.isPending} onPress={() => cont.mutate()} />}
                   {cont.isError ? <Txt tone="danger">{say(`errors.${errorKey(cont.error)}` as Key)}</Txt> : null}
                 </>
               ) : null}
