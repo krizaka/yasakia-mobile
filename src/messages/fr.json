@@ -16,7 +16,10 @@
   "tabs": {
     "label": "Yasakia",
     "talk": "Parler",
-    "batch": "Lot"
+    "batch": "Lot",
+    "dashboard": "Accueil",
+    "photos": "Photos",
+    "myIntros": "Présentations"
   },
   "talk": {
     "title": "Parle à ton agent",
@@ -74,6 +77,238 @@
     "CONVERSATION_CLOSED": "Ton portrait est déjà écrit.",
     "ALREADY_DECIDED": "Tu as déjà répondu pour cette personne.",
     "BATCH_EXPIRED": "Le temps de ce lot est écoulé.",
-    "UNAVAILABLE": "Yasakia n’est pas disponible pour l’instant."
+    "UNAVAILABLE": "Yasakia n’est pas disponible pour l’instant.",
+    "NOT_FOUND": "Ça n’existe pas (ou plus).",
+    "INVALID_PAYLOAD": "Vérifie ce que tu as saisi et réessaie.",
+    "FORBIDDEN": "Tu n’as pas le droit de faire ça.",
+    "MESSAGE_LENGTH": "Un message fait entre un mot et quelques lignes.",
+    "TURN_IN_PROGRESS": "L’agent répond encore. Un instant.",
+    "BUDGET_SPENT": "L’agent a dit tout ce qu’il pouvait pour l’instant.",
+    "INTRO_CLOSED": "Cette présentation est terminée — plus personne ne peut y écrire.",
+    "INTRO_FROZEN": "Cette présentation est en pause pendant l’examen d’un signalement.",
+    "ALREADY_CONTINUED": "Tu as déjà dit que tu veux continuer.",
+    "PHOTOS_REQUIRED": "Tes photos doivent d’abord passer la vérification — 4 à 6 photos, dont au moins 2 où l’on voit ton visage.",
+    "NO_PHOTOS": "Ajoute d’abord une photo.",
+    "TOO_MANY_PHOTOS": "Un profil contient six photos au plus.",
+    "INVALID_IMAGE": "Ce fichier n’est pas une photo que nous savons lire. Utilise une photo JPEG, PNG ou WebP.",
+    "UPLOAD_MISSING": "La photo n’est pas arrivée. Essaie de l’ajouter à nouveau.",
+    "UPLOAD_TOO_LARGE": "Cette photo est trop lourde (10 Mo au plus).",
+    "STORAGE_UNAVAILABLE": "Les photos ne peuvent pas être enregistrées pour l’instant. Réessaie dans un moment.",
+    "MEDIA_TOO_LARGE": "Ce fichier est plus gros que ce qui est permis.",
+    "MEDIA_TOO_LONG": "C’est plus long que ce qui est permis.",
+    "MEDIA_TYPE": "Ce type de fichier n’est pas accepté ici.",
+    "MEDIA_UNREADABLE": "Ce fichier ne se lit pas comme une photo, une vidéo ou un son.",
+    "MEDIA_UNAVAILABLE": "Les médias ne peuvent pas être traités pour l’instant. Réessaie dans un moment.",
+    "DUPLICATE": "Ceci a déjà été envoyé.",
+    "NOT_READY": "L’agent n’a pas encore écrit ton portrait. Continue de lui parler.",
+    "PROFILE_INCOMPLETE": "L’agent a encore besoin de quelques repères : dis-lui qui tu es, qui tu veux rencontrer et où tu vis.",
+    "BATCH_ALREADY_OPEN": "Tu as déjà un lot à répondre.",
+    "BATCH_CLOSED": "Ce lot est fermé.",
+    "load": "Impossible de charger ceci. Réessaie."
+  },
+  "photos": {
+    "lead": "Ajoute de {min} à {max} photos, dont au moins {faces} où ton visage est clairement le sujet. Elles restent privées tant qu’elles n’ont pas passé une vérification — ensuite, seules les personnes de tes lots les voient.",
+    "add": "Ajouter des photos",
+    "counts": "{count} photos sur {min} au moins ({max} au plus)",
+    "faceCount": "{count} photos sur {min} où l’on voit ton visage",
+    "grid": {
+      "add": "Ajouter une photo",
+      "main": "Principale",
+      "photo": "Photo {position}",
+      "moveEarlier": "Avancer",
+      "moveLater": "Reculer",
+      "remove": "Retirer",
+      "moved": "Déplacée à la place {position}",
+      "makeMain": "En faire la photo principale",
+      "cancel": "Annuler"
+    },
+    "state": {
+      "EMPTY": "Ajoute ta première photo pour commencer.",
+      "UNCHECKED": "Tes photos vont être vérifiées.",
+      "CHECKING": "Vérification de tes photos…",
+      "PASSED": "Tes photos sont prêtes. Elles peuvent être montrées et ton lot peut s’ouvrir.",
+      "FAILED": "Quelques photos demandent un autre regard avant de continuer.",
+      "UNAVAILABLE": "La vérification n’a pas pu se faire à l’instant. Tes photos sont à l’abri — réessaie dans un moment."
+    },
+    "status": {
+      "PENDING": "En attente de vérification",
+      "CHECKING": "Vérification…",
+      "FACE": "Visage détecté ✓",
+      "GROUP": "Plusieurs visages — ne compte pas comme photo de visage",
+      "NO_FACE": "Pas de visage ici — ça va, mais ça ne compte pas comme photo de visage"
+    },
+    "finding": {
+      "FACE_MISMATCH": "Ce visage ne ressemble pas à celui de tes autres photos. Choisis des photos de toi.",
+      "MINOR_LIKELY": "La personne ici a peut-être moins de 18 ans. Yasakia est réservé aux adultes.",
+      "TEXT_OR_CONTACT": "Quelque chose est écrit sur cette photo (du texte, un numéro, un nom d’utilisateur). Choisis-en une sans.",
+      "SCREENSHOT": "On dirait une capture d’écran ou une photo d’écran. Choisis une vraie photo.",
+      "UNVERIFIED": "La lecture automatique n’a pas répondu pour celle-ci. Ça ne te bloque pas.",
+      "GROUP_PHOTO": "Personne ne ressort dans cette photo."
+    },
+    "blocker": {
+      "TOO_FEW_PHOTOS": "Ajoute des photos jusqu’à en avoir {min}.",
+      "TOO_MANY_PHOTOS": "Retire des photos pour en avoir {max} ou moins.",
+      "TOO_FEW_FACE_PHOTOS": "Au moins {faces} photos doivent montrer ton visage clairement — ajoutes-en une où on te voit.",
+      "FACE_MISMATCH": "Certaines photos ne semblent pas montrer la même personne. Remplace-les.",
+      "MINOR_LIKELY": "Une photo montre peut-être quelqu’un de moins de 18 ans. Remplace-la.",
+      "TEXT_OR_CONTACT": "Retire les photos où du texte ou des coordonnées sont écrits.",
+      "SCREENSHOT": "Remplace les captures d’écran par de vraies photos."
+    },
+    "upload": {
+      "working": "Ajout de ta photo…",
+      "tooLarge": "Cette photo est trop lourde (10 Mo au plus).",
+      "wrongType": "Utilise une photo JPEG, PNG ou WebP.",
+      "failed": "Cette photo n’a pas pu être ajoutée. Essaie-en une autre."
+    },
+    "retry": "Vérifier à nouveau",
+    "continue": "Continuer vers mon lot",
+    "continueHint": "Disponible quand tes photos auront passé la vérification.",
+    "removeFailed": "La photo n’a pas pu être retirée. Réessaie.",
+    "privacy": {
+      "title": "Ce qui est vérifié, et ce qui ne l’est pas",
+      "intro": "Yasakia, c’est pour de vraies personnes. Quand tu ajoutes des photos, Orazaka — la plateforme d’IA de Krizaka, pas un service tiers — les regarde une fois.",
+      "items": {
+        "faces": "Les visages : elle compte les visages de chaque photo et repère lequel est le sujet.",
+        "same": "La même personne — seulement si tu es d’accord : elle peut comparer tes photos de visage entre elles, seulement pour repérer une photo qui est clairement quelqu’un d’autre. La comparaison dure quelques secondes en mémoire ; aucune empreinte de visage n’est gardée, nulle part.",
+        "questions": "Trois questions par oui ou non à un modèle de vision : est-ce une capture d’écran, y a-t-il quelque chose d’écrit dessus (du texte, un numéro, un nom d’utilisateur), la personne semble-t-elle avoir moins de 18 ans ?",
+        "not": "Pas vérifié : qui tu es. Elle n’identifie personne et ne reconnaît aucune célébrité."
+      },
+      "limits": "Elle peut se tromper, surtout avec un sosie, une casquette, une lumière forte ou un visage tout petit. Si une photo est refusée et que tu penses que ça ne devrait pas l’être, choisis-en une autre de toi.",
+      "more": "Le détail est dans la politique de confidentialité.",
+      "comparison": {
+        "OFF": "Tes photos ne sont pas comparées entre elles : on compte seulement les visages.",
+        "NEEDS_CONSENT": "Tes photos ne sont pas comparées entre elles tant que tu n’as pas donné ton accord plus haut : on compte seulement les visages.",
+        "ON": "Avec ton accord, tes photos sont comparées entre elles pour repérer une photo de quelqu’un d’autre. Rien n’est conservé."
+      }
+    },
+    "consent": {
+      "title": "Comparer mes photos entre elles ?",
+      "lead": "Pour t’assurer que tes photos de visage montrent la même personne, nous pouvons les comparer entre elles. C’est une analyse faciale : nous te demandons d’abord.",
+      "purpose": "Nous comparons tes photos entre elles pour vérifier qu’il s’agit de la même personne ; rien n’est conservé : la comparaison dure quelques secondes en mémoire et aucune empreinte de visage n’est stockée nulle part.",
+      "nothingKept": "Seul le résultat est gardé — une note comme « visage détecté » — jamais une empreinte de visage, une note chiffrée ni une copie de la comparaison.",
+      "optional": "Tu peux dire non, ou reprendre ton accord à tout moment. Sans lui, nous comptons seulement les visages de tes photos et cherchons du texte ou des captures d’écran.",
+      "accept": "J’accepte la comparaison",
+      "withdraw": "Retirer mon accord"
+    },
+    "pickFailed": "La photothèque n’a pas pu s’ouvrir.",
+    "reorderFailed": "L’ordre n’a pas pu être enregistré. Réessaie.",
+    "noPhotoYet": "Pas encore de photo",
+    "slot": "{count} places sur {max} utilisées",
+    "title": "Photos"
+  },
+  "intros": {
+    "title": "Présentations",
+    "lead": "Deux personnes se sont dit oui : un espace privé pendant sept jours. Continuez ensemble, ou laissez s’éteindre.",
+    "listTitle": "Tes présentations",
+    "someone": "Quelqu’un",
+    "emptyTitle": "Aucune présentation pour l’instant",
+    "emptyDescription": "Quand une personne à qui tu as dit oui te dit oui aussi, votre présentation s’ouvre ici.",
+    "openUntil": "Ouverte jusqu’au {date}",
+    "with": "Toi et {name}",
+    "threadLabel": "Votre conversation",
+    "noMessage": "Personne n’a encore écrit.",
+    "placeholder": "Écris un message",
+    "send": "Envoyer",
+    "closed": "Cette présentation est terminée.",
+    "frozen": "En pause pendant l’examen d’un signalement.",
+    "agentNeverReads": "Ton agent ne lit jamais cette conversation. Pour afficher la petite marque au-dessus de chaque message, un classifieur lit chaque message une fois, sur les serveurs de Krizaka, et ne garde rien ; la marque est un signal qui peut se tromper, jamais un verdict.",
+    "continueLead": "Envie de continuer après les sept jours ? Ça continue quand vous le dites tous les deux.",
+    "continue": "Continuer",
+    "waitingForThem": "Tu as dit que tu veux continuer. On attend {name}.",
+    "states": {
+      "OPEN": "Ouverte",
+      "CONTINUED": "Continuée — vous l’avez dit tous les deux",
+      "FADED": "Éteinte — le temps s’est écoulé",
+      "CLOSED": "Fermée"
+    },
+    "typedByYou": "Chaque message ici est écrit par vous deux. L’agent n’écrit rien à ta place et ne lit jamais cette conversation.",
+    "authenticity": {
+      "PENDING": {
+        "label": "…",
+        "hint": "Lecture du message."
+      },
+      "HAND": {
+        "label": "Écrit à la main",
+        "hint": "Rien n’indique que ce message a été généré : il a été tapé ici, à un rythme humain."
+      },
+      "UNSURE": {
+        "label": "Incertain",
+        "hint": "On ne peut pas dire. Un signal n’est pas un verdict : beaucoup de gens collent un message écrit ailleurs."
+      },
+      "LIKELY_GENERATED": {
+        "label": "Probablement généré",
+        "hint": "Le texte ressemble à un texte de machine et il est arrivé collé ou plus vite qu’une main ne tape. Ce peut être un message que la personne a écrit ailleurs."
+      },
+      "TOO_SHORT": {
+        "label": "Trop court pour juger",
+        "hint": "Un texte court en dit trop peu pour dire quoi que ce soit."
+      },
+      "canBeWrong": "Ce signal peut se tromper, surtout sur les textes courts et sur une écriture en français ou non native. Il ne bloque jamais un message."
+    },
+    "media": {
+      "checking": "Vérification de sécurité… toi seul·e la vois pour l’instant",
+      "unavailable": "Impossible de charger ceci. Recharge la conversation.",
+      "refused": "Ceci n’a pas été envoyé — ça n’a pas passé la vérification de sécurité :",
+      "gone": "Ce média n’est plus disponible (la conversation est terminée).",
+      "title": {
+        "PHOTO": "Photo",
+        "VIDEO": "Vidéo {duration}",
+        "AUDIO": "Message vocal {duration}"
+      },
+      "problem": {
+        "tooLarge": "Ce fichier fait plus de {max} Mo.",
+        "tooLong": "C’est plus long que {max} secondes.",
+        "unreadable": "Ce fichier ne se lit pas comme une photo, une vidéo ou un son.",
+        "upload": "L’envoi a échoué. Réessaie."
+      },
+      "codes": {
+        "SEXUAL_CONTENT": "de la nudité ou du contenu sexuel",
+        "GRAPHIC_VIOLENCE": "de la violence graphique",
+        "MINOR_UNSAFE": "une personne jeune dans un contexte dangereux",
+        "THREAT_OR_HARASSMENT": "une menace ou du harcèlement",
+        "SEXUAL_SPEECH": "des propos sexuellement explicites",
+        "HATE": "des propos haineux"
+      },
+      "onWeb": "Les messages vidéo et vocaux se lisent sur le web pour l’instant."
+    },
+    "fictionalBadge": "Personnage fictif — développement seulement",
+    "signalMore": "Que veut dire cette marque ?",
+    "back": "Présentations"
+  },
+  "home": {
+    "title": "Accueil",
+    "lead": "Où en sont les choses pour toi aujourd’hui.",
+    "agent": "Ton agent",
+    "batch": "Ton lot",
+    "photos": "Tes photos",
+    "intros": "Présentations",
+    "photosValue": "{count} photos sur {min} au moins",
+    "photosPassed": "Vérifiées et prêtes",
+    "photosAdd": "Ajouter tes photos",
+    "batchValue": "{count} personnes",
+    "batchNone": "Aucun d’ouvert",
+    "batchHintOpen": "{decided} réponses sur {count}",
+    "introsValue": "{count} ouvertes",
+    "introsNone": "Aucune pour l’instant",
+    "introsHint": "{continued} qui continuent",
+    "open": "Ouvrir"
+  },
+  "dashboard": {
+    "agentState": {
+      "ONBOARDING": "Il apprend à te connaître",
+      "DISCOVERY": "Il cerne ce que tu cherches",
+      "WAITING_POOL": "Il cherche un accord mutuel",
+      "BATCH_READY": "Un lot est prêt",
+      "BATCH_OPEN": "Ton lot est ouvert",
+      "DEBRIEF_DUE": "Un bilan t’attend"
+    },
+    "agentHint": {
+      "ONBOARDING": "Parle avec ton agent — c’est la première étape.",
+      "DISCOVERY": "Encore quelques questions et il pourra commencer.",
+      "WAITING_POOL": "Ton portrait est écrit. Seuls les accords mutuels te sont montrés.",
+      "BATCH_READY": "Ouvre l’appli pour les rencontrer.",
+      "BATCH_OPEN": "Prends ton temps.",
+      "DEBRIEF_DUE": "Raconte à l’agent comment ça s’est passé."
+    }
   }
 }

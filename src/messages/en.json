@@ -16,7 +16,10 @@
   "tabs": {
     "label": "Yasakia",
     "talk": "Talk",
-    "batch": "Batch"
+    "batch": "Batch",
+    "dashboard": "Home",
+    "photos": "Photos",
+    "myIntros": "Introductions"
   },
   "talk": {
     "title": "Talk to your agent",
@@ -74,6 +77,238 @@
     "CONVERSATION_CLOSED": "Your portrait is already written.",
     "ALREADY_DECIDED": "You have already answered for this person.",
     "BATCH_EXPIRED": "This batch has run out of time.",
-    "UNAVAILABLE": "Yasakia is not available right now."
+    "UNAVAILABLE": "Yasakia is not available right now.",
+    "NOT_FOUND": "That does not exist (any more).",
+    "INVALID_PAYLOAD": "Check what you typed and try again.",
+    "FORBIDDEN": "You are not allowed to do this.",
+    "MESSAGE_LENGTH": "A message is between one word and a few lines.",
+    "TURN_IN_PROGRESS": "The agent is still answering. One moment.",
+    "BUDGET_SPENT": "The agent has said all it can for now.",
+    "INTRO_CLOSED": "This introduction is over — nobody can write in it any more.",
+    "INTRO_FROZEN": "This introduction is paused while a report is reviewed.",
+    "ALREADY_CONTINUED": "You already said you want to continue.",
+    "PHOTOS_REQUIRED": "Your photos have to pass the check first — 4 to 6 photos, at least 2 showing your face.",
+    "NO_PHOTOS": "Add a photo first.",
+    "TOO_MANY_PHOTOS": "A profile holds six photos at most.",
+    "INVALID_IMAGE": "This file is not a photo we can read. Use a JPEG, PNG or WebP photo.",
+    "UPLOAD_MISSING": "The photo did not arrive. Try adding it again.",
+    "UPLOAD_TOO_LARGE": "This photo is too large (10 MB at most).",
+    "STORAGE_UNAVAILABLE": "Photos cannot be stored right now. Try again in a moment.",
+    "MEDIA_TOO_LARGE": "This file is larger than allowed.",
+    "MEDIA_TOO_LONG": "This is longer than allowed.",
+    "MEDIA_TYPE": "This type of file is not accepted here.",
+    "MEDIA_UNREADABLE": "This file cannot be read as a photo, video or sound.",
+    "MEDIA_UNAVAILABLE": "Media cannot be processed right now. Try again in a moment.",
+    "DUPLICATE": "This was already sent.",
+    "NOT_READY": "The agent has not written your portrait yet. Keep talking.",
+    "PROFILE_INCOMPLETE": "The agent still needs a few basics: tell it who you are, who you want to meet and where you live.",
+    "BATCH_ALREADY_OPEN": "You already have a batch to answer.",
+    "BATCH_CLOSED": "This batch is closed.",
+    "load": "We could not load this. Try again."
+  },
+  "photos": {
+    "lead": "Add {min} to {max} photos, at least {faces} where your face is clearly the subject. They stay private to you until they pass a check — then only the people of your batches see them.",
+    "add": "Add photos",
+    "counts": "{count} of {min} photos at least ({max} at most)",
+    "faceCount": "{count} of {min} photos showing your face",
+    "grid": {
+      "add": "Add a photo",
+      "main": "Main",
+      "photo": "Photo {position}",
+      "moveEarlier": "Move earlier",
+      "moveLater": "Move later",
+      "remove": "Remove",
+      "moved": "Moved to place {position}",
+      "makeMain": "Make it the main photo",
+      "cancel": "Cancel"
+    },
+    "state": {
+      "EMPTY": "Add your first photo to begin.",
+      "UNCHECKED": "Your photos are about to be checked.",
+      "CHECKING": "Checking your photos…",
+      "PASSED": "Your photos are ready. They can be shown, and your batch can open.",
+      "FAILED": "A few photos need another look before you continue.",
+      "UNAVAILABLE": "The check could not run just now. Your photos are safe — try again in a moment."
+    },
+    "status": {
+      "PENDING": "Waiting to be checked",
+      "CHECKING": "Checking…",
+      "FACE": "Face detected ✓",
+      "GROUP": "Several faces — this one does not count as a face photo",
+      "NO_FACE": "No face here — fine, but it does not count as a face photo"
+    },
+    "finding": {
+      "FACE_MISMATCH": "This face does not look like the one on your other photos. Choose photos of you.",
+      "MINOR_LIKELY": "The person here may be under 18. Yasakia is for adults only.",
+      "TEXT_OR_CONTACT": "Something is written over this photo (text, a number, a username). Choose a photo without.",
+      "SCREENSHOT": "This looks like a screenshot or a photo of a screen. Choose a real photo.",
+      "UNVERIFIED": "The automatic reading did not answer for this one. It does not stop you.",
+      "GROUP_PHOTO": "Nobody stands out in this photo."
+    },
+    "blocker": {
+      "TOO_FEW_PHOTOS": "Add photos until you have {min}.",
+      "TOO_MANY_PHOTOS": "Remove photos until you have {max} or fewer.",
+      "TOO_FEW_FACE_PHOTOS": "At least {faces} photos must show your face clearly — add one where we see you.",
+      "FACE_MISMATCH": "Some photos do not seem to show the same person. Replace them.",
+      "MINOR_LIKELY": "A photo may show someone under 18. Replace it.",
+      "TEXT_OR_CONTACT": "Remove the photos with text or contact details written on them.",
+      "SCREENSHOT": "Replace the screenshots with real photos."
+    },
+    "upload": {
+      "working": "Adding your photo…",
+      "tooLarge": "This photo is too large (10 MB at most).",
+      "wrongType": "Use a JPEG, PNG or WebP photo.",
+      "failed": "This photo could not be added. Try another."
+    },
+    "retry": "Check again",
+    "continue": "Continue to my batch",
+    "continueHint": "Available once your photos have passed the check.",
+    "removeFailed": "The photo could not be removed. Try again.",
+    "privacy": {
+      "title": "What is checked, and what is not",
+      "intro": "Yasakia is for real people. When you add photos, Orazaka — Krizaka’s own AI platform, not a third-party service — looks at them once.",
+      "items": {
+        "faces": "Faces: it counts the faces in each photo and which one is the subject.",
+        "same": "The same person — only if you agree: it can compare your face photos with each other, only to catch a photo that is clearly someone else. The comparison lasts a few seconds in memory; no face print is kept, anywhere.",
+        "questions": "Three yes/no questions to a vision model: does it look like a screenshot, is something written over it (text, a number, a username), does the person look under 18?",
+        "not": "Not checked: who you are. It identifies no one and recognises no celebrity."
+      },
+      "limits": "It can be wrong, especially with a lookalike, a hat, strong light or a small face. If a photo is refused and you think it should not be, choose another one of you.",
+      "more": "Details in the privacy policy.",
+      "comparison": {
+        "OFF": "Your photos are not compared with each other: faces are only counted.",
+        "NEEDS_CONSENT": "Your photos are not compared with each other until you agree above: faces are only counted.",
+        "ON": "With your agreement, your photos are compared with each other to catch a photo of someone else. Nothing is kept."
+      }
+    },
+    "consent": {
+      "title": "Compare my photos with each other?",
+      "lead": "To make sure your face photos show the same person, we can compare them with each other. This is facial analysis, so we ask you first.",
+      "purpose": "We compare your photos with each other to check they show the same person. Nothing is kept: the comparison lasts a few seconds in memory, and no face print is stored anywhere.",
+      "nothingKept": "Only the result is kept — a note such as « face detected » — never a face print, a score or a copy of the comparison.",
+      "optional": "You can say no, or take your agreement back at any time. Without it, we only count the faces in your photos and look for text and screenshots.",
+      "accept": "I agree to the comparison",
+      "withdraw": "Withdraw my agreement"
+    },
+    "pickFailed": "The photo library could not be opened.",
+    "reorderFailed": "The order could not be saved. Try again.",
+    "noPhotoYet": "No photo yet",
+    "slot": "{count} of {max} places used",
+    "title": "Photos"
+  },
+  "intros": {
+    "title": "Introductions",
+    "lead": "Two people said yes to each other: a private room for seven days. Continue together, or let it fade.",
+    "listTitle": "Your introductions",
+    "someone": "Someone",
+    "emptyTitle": "No introduction yet",
+    "emptyDescription": "When someone you said yes to says yes too, your introduction opens here.",
+    "openUntil": "Open until {date}",
+    "with": "You and {name}",
+    "threadLabel": "Your conversation",
+    "noMessage": "Nobody has written yet.",
+    "placeholder": "Write a message",
+    "send": "Send",
+    "closed": "This introduction is over.",
+    "frozen": "Paused while a report is reviewed.",
+    "agentNeverReads": "Your agent never reads this conversation. To show the small mark above each message, a classifier reads each message once, on Krizaka’s own servers, and keeps nothing; the mark is a signal that can be wrong, never a verdict.",
+    "continueLead": "Want to keep talking after the seven days? It continues when you both say so.",
+    "continue": "Continue",
+    "waitingForThem": "You said you want to continue. Waiting for {name}.",
+    "states": {
+      "OPEN": "Open",
+      "CONTINUED": "Continued — you both said so",
+      "FADED": "Faded — the time ran out",
+      "CLOSED": "Closed"
+    },
+    "typedByYou": "Every message here is typed by you two. The agent writes nothing for you and never reads this conversation.",
+    "authenticity": {
+      "PENDING": {
+        "label": "…",
+        "hint": "Reading this message."
+      },
+      "HAND": {
+        "label": "Written by hand",
+        "hint": "Nothing points to this message being generated: it was typed here, at a human pace."
+      },
+      "UNSURE": {
+        "label": "Uncertain",
+        "hint": "We cannot tell. A signal is not a verdict: many people paste a message they wrote elsewhere."
+      },
+      "LIKELY_GENERATED": {
+        "label": "Probably generated",
+        "hint": "The text reads like machine text and it arrived pasted or faster than a hand types. It may be a message the person wrote elsewhere."
+      },
+      "TOO_SHORT": {
+        "label": "Too short to judge",
+        "hint": "A short text says too little to say anything."
+      },
+      "canBeWrong": "This signal can be wrong, especially on short texts and on French or non-native writing. It never blocks a message."
+    },
+    "media": {
+      "checking": "Safety check… only you can see it for now",
+      "unavailable": "This could not be loaded. Reload the conversation.",
+      "refused": "This was not sent — it did not pass the safety check:",
+      "gone": "This media is no longer available (the conversation has ended).",
+      "title": {
+        "PHOTO": "Photo",
+        "VIDEO": "Video {duration}",
+        "AUDIO": "Voice message {duration}"
+      },
+      "problem": {
+        "tooLarge": "This file is larger than {max} MB.",
+        "tooLong": "This is longer than {max} seconds.",
+        "unreadable": "This file cannot be read as a photo, video or sound.",
+        "upload": "The upload failed. Try again."
+      },
+      "codes": {
+        "SEXUAL_CONTENT": "nudity or sexual content",
+        "GRAPHIC_VIOLENCE": "graphic violence",
+        "MINOR_UNSAFE": "a young person in an unsafe context",
+        "THREAT_OR_HARASSMENT": "a threat or harassment",
+        "SEXUAL_SPEECH": "sexually explicit words",
+        "HATE": "hateful words"
+      },
+      "onWeb": "Video and voice messages play on the web for now."
+    },
+    "fictionalBadge": "Fictional persona — dev only",
+    "signalMore": "What does this mark mean?",
+    "back": "Introductions"
+  },
+  "home": {
+    "title": "Home",
+    "lead": "Where things stand with you today.",
+    "agent": "Your agent",
+    "batch": "Your batch",
+    "photos": "Your photos",
+    "intros": "Introductions",
+    "photosValue": "{count} of {min} photos at least",
+    "photosPassed": "Checked and ready",
+    "photosAdd": "Add your photos",
+    "batchValue": "{count} people",
+    "batchNone": "None open",
+    "batchHintOpen": "{decided} of {count} answered",
+    "introsValue": "{count} open",
+    "introsNone": "None yet",
+    "introsHint": "{continued} continuing",
+    "open": "Open"
+  },
+  "dashboard": {
+    "agentState": {
+      "ONBOARDING": "Getting to know you",
+      "DISCOVERY": "Learning what you look for",
+      "WAITING_POOL": "Looking for a mutual fit",
+      "BATCH_READY": "A batch is ready",
+      "BATCH_OPEN": "Your batch is open",
+      "DEBRIEF_DUE": "A debrief is due"
+    },
+    "agentHint": {
+      "ONBOARDING": "Talk with your agent — it is the first step.",
+      "DISCOVERY": "A few more questions and it can start.",
+      "WAITING_POOL": "Your portrait is written. Only mutual fits are shown.",
+      "BATCH_READY": "Open the app to meet them.",
+      "BATCH_OPEN": "Take your time.",
+      "DEBRIEF_DUE": "Tell the agent how it went."
+    }
   }
 }

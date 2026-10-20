@@ -15,7 +15,7 @@ export default function SignIn() {
   const [password, setPassword] = useState("");
   const [problem, setProblem] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
-  if (state.status === "signedIn") return <Redirect href={`/app/${deviceLocale()}/talk`} />;
+  if (state.status === "signedIn") return <Redirect href={`/app/${deviceLocale()}`} />;
   const submit = async () => {
     setProblem(null);
     setBusy(true);
@@ -31,14 +31,14 @@ export default function SignIn() {
     <Screen scroll keyboard header={<Header title={say("signIn.title")} subtitle={say("signIn.lead")} />}>
       <View style={{ gap: 16 }}>
         <YasakiaMark size={56} animated />
-        <TextField label={say("signIn.email")} value={email} onValueChange={setEmail} autoCapitalize="none" autoComplete="email" keyboardType="email-address" textContentType="username" />
-        <TextField label={say("signIn.password")} value={password} onValueChange={setPassword} secureTextEntry autoComplete="current-password" textContentType="password" onSubmitEditing={() => void submit()} />
+        <TextField testID="signin-email" label={say("signIn.email")} value={email} onValueChange={setEmail} autoCapitalize="none" autoComplete="email" keyboardType="email-address" textContentType="username" />
+        <TextField testID="signin-password" label={say("signIn.password")} value={password} onValueChange={setPassword} secureTextEntry autoComplete="current-password" textContentType="password" onSubmitEditing={() => void submit()} />
         {problem ? (
           <Txt tone="danger" accessibilityRole="alert">
             {problem}
           </Txt>
         ) : null}
-        <Button label={busy ? say("signIn.working") : say("signIn.submit")} loading={busy} disabled={!email || !password || busy} onPress={() => void submit()} />
+        <Button testID="signin-submit" label={busy ? say("signIn.working") : say("signIn.submit")} loading={busy} disabled={!email || !password || busy} onPress={() => void submit()} />
       </View>
     </Screen>
   );
