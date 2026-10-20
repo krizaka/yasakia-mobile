@@ -7,19 +7,31 @@
     "development": {
       "developmentClient": true,
       "distribution": "internal",
-      "env": { "EXPO_PUBLIC_APP_URL": "https://dev.yasakia.com" }
+      "env": {
+        "EXPO_PUBLIC_APP_URL": "https://dev.yasakia.com"
+      }
     },
     "preview": {
       "distribution": "internal",
-      "android": { "buildType": "apk" },
-      "env": { "EXPO_PUBLIC_APP_URL": "https://dev.yasakia.com" }
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "EXPO_PUBLIC_APP_URL": "https://dev.yasakia.com"
+      }
     },
     "production": {
       "autoIncrement": true,
-      "env": { "EXPO_PUBLIC_APP_URL": "https://dev.yasakia.com" }
+      "env": {
+        "EXPO_PUBLIC_APP_URL": "https://dev.yasakia.com"
+      }
     }
   },
   "submit": {
-    "production": { "ios": {} }
+    "production": {
+      "ios": {
+        "ascAppId": "6825100868"
+      }
+    }
   }
 }
