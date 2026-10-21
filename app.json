@@ -39,7 +39,13 @@
       ],
       "permissions": [
         "android.permission.RECORD_AUDIO"
-      ]
+      ],
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png",
+        "backgroundColor": "#0d0d10"
+      }
     },
     "web": {
       "bundler": "metro"
@@ -52,6 +58,17 @@
         {
           "photosPermission": "Yasakia reads only the photos you choose to add to your profile."
         }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#0d0d10",
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 160,
+          "dark": {
+            "backgroundColor": "#0d0d10"
+          }
+        }
       ]
     ],
     "experiments": {
@@ -62,6 +79,8 @@
       "eas": {
         "projectId": "c7ab6849-f1f5-4b7a-9bad-ba1baa003555"
       }
-    }
+    },
+    "icon": "./assets/icon.png",
+    "backgroundColor": "#0d0d10"
   }
 }
