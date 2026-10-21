@@ -8,6 +8,7 @@ import { AppState } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import { AppGate } from "@/components/AppGate";
+import { Discovery, DiscoveryGate } from "@/components/DiscoveryGate";
 import { appConfig, setUpApi } from "@/lib/api";
 import { AuthProvider } from "@/lib/auth";
 import { deviceLocale, i18n, LocaleProvider } from "@/lib/i18n";
@@ -15,7 +16,7 @@ import { deviceLocale, i18n, LocaleProvider } from "@/lib/i18n";
 setUpApi();
 const resume = appStateResume(AppState);
 
-/** The app: the Yasakia theme over the Krizaka roles, the app-version gate, the session, then the screens. */
+/** The app: the Yasakia theme over the Krizaka roles, the backend's address and its gate (the signed manifest), the app-version gate, the session, then the screens. */
 function Root() {
   const { theme, scheme } = useTheme();
   const version = useAppConfig(appConfig, resume);
@@ -34,11 +35,15 @@ export default function Layout() {
     <SafeAreaProvider>
       <ThemeProvider overrides={brands.yasakia}>
         <LocaleProvider value={deviceLocale()}>
-          <KrizakaQueryProvider>
-            <AuthProvider>
-              <Root />
-            </AuthProvider>
-          </KrizakaQueryProvider>
+          <Discovery>
+            <DiscoveryGate>
+              <KrizakaQueryProvider>
+                <AuthProvider>
+                  <Root />
+                </AuthProvider>
+              </KrizakaQueryProvider>
+            </DiscoveryGate>
+          </Discovery>
         </LocaleProvider>
       </ThemeProvider>
     </SafeAreaProvider>

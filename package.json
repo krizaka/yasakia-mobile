@@ -20,7 +20,8 @@
     "check": "npm run lint && npm run typecheck && npm test && npm run export"
   },
   "dependencies": {
-    "@krizaka/app-config": "^0.1.0",
+    "@krizaka/app-config": "^0.2.0",
+    "@krizaka/discovery": "^0.1.0",
     "@krizaka/i18n": "^0.2.2",
     "@krizaka/icons": "^0.5.1",
     "@krizaka/query": "^0.2.1",
@@ -61,7 +62,7 @@
   "jest": {
     "preset": "jest-expo",
     "transformIgnorePatterns": [
-      "/node_modules/(?!(.pnpm|react-native|@react-native|@react-native-community|expo|@expo|react-navigation|@react-navigation|@krizaka|@tanstack))"
+      "/node_modules/(?!(.pnpm|react-native|@react-native|@react-native-community|expo|@expo|react-navigation|@react-navigation|@krizaka|@noble|@tanstack))"
     ],
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/src/$1",

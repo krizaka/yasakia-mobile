@@ -5,7 +5,7 @@ import { Text } from "react-native";
 
 import { AppGate } from "@/components/AppGate";
 import { errorKey } from "@/lib/api";
-import { appUrlFrom } from "@/lib/config";
+import { appEnvironmentFrom, appUrlOverrideFrom } from "@/lib/config";
 import { i18n } from "@/lib/i18n";
 
 jest.mock("expo-secure-store", () => ({ getItemAsync: jest.fn(async () => null), setItemAsync: jest.fn(async () => undefined), deleteItemAsync: jest.fn(async () => undefined) }));
@@ -70,9 +70,15 @@ describe("the API's answers in words", () => {
 });
 
 describe("the environment", () => {
-  it("talks to the development deployment by default and refuses a malformed URL", () => {
-    expect(appUrlFrom(undefined)).toBe("https://dev.yasakia.com");
-    expect(appUrlFrom("https://example.test/")).toBe("https://example.test");
-    expect(() => appUrlFrom("ftp://x")).toThrow();
+  it("has no API address of its own unless one is given for local work: discovery decides; a malformed one is refused", () => {
+    expect(appUrlOverrideFrom(undefined)).toBeUndefined();
+    expect(appUrlOverrideFrom("https://example.test/")).toBe("https://example.test");
+    expect(() => appUrlOverrideFrom("ftp://x")).toThrow();
+    expect(() => appUrlOverrideFrom("dev.yasakia.com")).toThrow("EXPO_PUBLIC_APP_URL");
+  });
+  it("follows the dev entry of the manifest unless told otherwise, and refuses any other channel", () => {
+    expect(appEnvironmentFrom(undefined)).toBe("dev");
+    expect(appEnvironmentFrom("prod")).toBe("prod");
+    expect(() => appEnvironmentFrom("qa")).toThrow("EXPO_PUBLIC_APP_ENV");
   });
 });

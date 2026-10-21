@@ -8,7 +8,7 @@
       "developmentClient": true,
       "distribution": "internal",
       "env": {
-        "EXPO_PUBLIC_APP_URL": "https://dev.yasakia.com"
+        "EXPO_PUBLIC_APP_ENV": "dev"
       }
     },
     "preview": {
@@ -17,13 +17,13 @@
         "buildType": "apk"
       },
       "env": {
-        "EXPO_PUBLIC_APP_URL": "https://dev.yasakia.com"
+        "EXPO_PUBLIC_APP_ENV": "dev"
       }
     },
     "production": {
       "autoIncrement": true,
       "env": {
-        "EXPO_PUBLIC_APP_URL": "https://dev.yasakia.com"
+        "EXPO_PUBLIC_APP_ENV": "dev"
       }
     }
   },
