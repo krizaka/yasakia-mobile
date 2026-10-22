@@ -12,32 +12,26 @@ concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
-# The standard checks of the Krizaka Expo apps (same job as orochia-mobile): lint, types, unit tests, iOS and Android bundles.
-# The job is required on `main`. Until the app's first commit lands (no package.json yet), it says so and passes; from the
-# first pull request that adds the app, every step runs — that pull request must define the four scripts.
+# The standard checks of the Krizaka Expo apps: the org's reusable expo-ci (krizaka/.github#148) - lint, types, unit tests and the
+# iOS + Android bundle export, side by side.
 jobs:
+  ci:
+    permissions:
+      contents: read
+    uses: krizaka/.github/.github/workflows/expo-ci.yml@d95527618e5b070cff81d248964290b732e31886 # v1.4.0
+    with:
+      extra-scripts: |
+        export
+
+  # The required check keeps its name; it reads the gate's verdict. Goes when protection requires « ci / CI gate ».
   check:
     name: Lint, types, tests, iOS and Android bundles
+    needs: ci
+    if: ${{ always() }}
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 2
+    permissions: {}
+    env:
+      RESULT: ${{ needs.ci.outputs.result }}
     steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
-      - name: Is there an app yet?
-        id: app
-        run: |
-          if [ -f package.json ]; then echo "present=true" >> "$GITHUB_OUTPUT"; else echo "present=false" >> "$GITHUB_OUTPUT"; echo "::notice::No package.json yet: nothing to check until the app lands."; fi
-      - if: steps.app.outputs.present == 'true'
-        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
-        with:
-          node-version: 22
-          cache: npm
-      - if: steps.app.outputs.present == 'true'
-        run: npm ci
-      - if: steps.app.outputs.present == 'true'
-        run: npm run lint
-      - if: steps.app.outputs.present == 'true'
-        run: npm run typecheck
-      - if: steps.app.outputs.present == 'true'
-        run: npm test -- --ci
-      - if: steps.app.outputs.present == 'true'
-        run: npm run export
+      - run: test "$RESULT" = success
