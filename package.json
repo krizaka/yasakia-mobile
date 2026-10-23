@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "main": "expo-router/entry",
   "private": true,
-  "description": "Yasakia for iOS and Android \u2014 talk to your agent first, then a small batch of people who fit both ways. React Native (Expo).",
+  "description": "Yasakia for iOS and Android — talk to your agent first, then a small batch of people who fit both ways. React Native (Expo).",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
@@ -13,11 +13,12 @@
     "start": "expo start",
     "android": "expo run:android",
     "ios": "expo run:ios",
-    "lint": "expo lint && krizaka-i18n check src/messages && node scripts/check-app-links.mjs",
+    "lint": "expo lint && krizaka-i18n check src/messages && node scripts/check-app-links.mjs && node scripts/check-icons.mjs && npm run test:icons",
     "typecheck": "tsc --noEmit",
     "test": "jest",
     "export": "expo export --platform ios --platform android --output-dir dist",
-    "check": "npm run lint && npm run typecheck && npm test && npm run export"
+    "check": "npm run lint && npm run typecheck && npm test && npm run export",
+    "test:icons": "node --test scripts/check-icons.test.mjs"
   },
   "dependencies": {
     "@krizaka/app-config": "^0.2.0",
